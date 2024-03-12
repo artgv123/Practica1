@@ -20,7 +20,7 @@ jobs:
         
         with:
 
-          node-version: 16
+          node-version: 20
 
       - name: ' instalacion dependencias💻'
         
