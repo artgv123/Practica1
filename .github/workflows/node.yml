@@ -20,7 +20,7 @@ jobs:
         
         with:
 
-          node-version-file: '.nvmrc'
+          node-version: 16
 
       - name: ' instalacion dependencias💻'
         
