@@ -24,8 +24,6 @@ jobs:
 
       - name: ' instalacion dependencias💻'
 
-        run: install npm
-        
         run: npm ci
 
       - name: 'Build typescript 📟'
