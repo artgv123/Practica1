@@ -23,8 +23,10 @@ jobs:
           node-version: 20
 
       - name: ' instalacion dependencias💻'
+
+        run: install npm
         
-        run: npm install
+        run: npm ci
 
       - name: 'Build typescript 📟'
 
