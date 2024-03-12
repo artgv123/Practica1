@@ -1,0 +1,38 @@
+name: integracion continua con node.js
+
+on:
+  push:
+
+jobs:
+
+  run:
+   
+    runs-on: ubuntu-latest
+   
+    steps:
+      - name: 'Checkout 🚀'
+      
+        uses: actions/checkout@v4
+
+      - name: 'Setup node ⚙'
+          
+        uses: actions/setup-node@v4
+        
+        with:
+
+          node-version-file: '.nvmrc'
+
+      - name: ' instalacion dependencias💻'
+        
+        run: npm ci
+
+      - name: 'Build typescript 📟'
+
+        run: npm run build
+
+      - name: 'Run test ✔'
+       
+        run: npm run test
+
+     
+  
