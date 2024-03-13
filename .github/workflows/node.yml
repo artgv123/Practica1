@@ -1,38 +1,30 @@
 name: integracion continua con node.js
+name: Node.js CI
 
 on:
   push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
+  build:
 
-  run:
-   
     runs-on: ubuntu-latest
-   
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      - name: 'Checkout 🚀'
-      
-        uses: actions/checkout@v4
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
 
-      - name: 'Setup node ⚙'
-          
-        uses: actions/setup-node@v4
-        
-        with:
-
-          node-version: 20
-
-      - name: ' instalacion dependencias💻'
-
-        run: npm ci
-
-      - name: 'Build typescript 📟'
-
-        run: npm run build
-
-      - name: 'Run test ✔'
-       
-        run: npm run test
-
-     
-  
