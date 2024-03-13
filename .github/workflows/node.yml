@@ -9,10 +9,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - name: Checar el repositorio
+      uses: actions/checkout@v4J
+      
+    - name: Instalacion de NodeJS 
+      uses: actions/setup-node@v4
       with:
         node-version: 18
+        
+    - name: ejecucion del testing    
     - run: npm install
     - run: npm ci
     - run: npm install --save-dev jest
