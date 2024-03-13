@@ -1,5 +1,4 @@
 name: integracion continua con node.js
-name: Node.js CI
 
 on:
   push:
